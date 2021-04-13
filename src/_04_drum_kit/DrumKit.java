@@ -25,6 +25,7 @@ import javax.swing.JPanel;
 public class DrumKit implements MouseListener {
 
 	JLabel drumLabelWithImage;
+	JLabel cymbalLabel;
 
 	public void run() throws MalformedURLException {
 
@@ -61,14 +62,18 @@ public class DrumKit implements MouseListener {
 		drumLabelWithImage.addMouseListener(this);
 		// 18. Add more images to make a drumkit. Remember to add this mouse
 		// listener to each one.
-
+		String cymbal = "cymbal.jpg";
+		cymbalLabel = createLabelImage(cymbal);
+		cymbalLabel.addMouseListener(this);
+		panel.add(cymbalLabel);
+		frame.pack();
 	}
 
 	public void mouseClicked(MouseEvent e) {
 		// 14. Print "mouse clicked" to the console. Run your program and watch
 		// the console to see when this is printed.
 
-		JLabel drumClicked = (JLabel) e.getSource(); // This line gets the label
+		JLabel clicked = (JLabel) e.getSource(); // This line gets the label
 														// that the mouse
 														// clicked on
 		System.out.println("mouse clicked");
@@ -77,8 +82,10 @@ public class DrumKit implements MouseListener {
 		// leagueofamazing/code4life.
 
 		// 16. If they clicked on the drumImage...
-		if(drumClicked == drumLabelWithImage) {
+		if(clicked == drumLabelWithImage) {
 			playSound("drum.wav");
+		} else if(clicked == cymbalLabel) {
+			playSound("cymbal.wav");
 		}
 		// 17. ...use the playSound method to play a drum sound. Test to see if
 		// it works
