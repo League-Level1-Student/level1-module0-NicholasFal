@@ -13,6 +13,8 @@ void rotateImage(PImage image, int amountToRotate) {
 void draw() { 
   rotateImage(pictureOfRecord, angle);   
    image(pictureOfRecord, 0, 0); 
-   angle++;
+   if(mousePressed) {
+   angle+= 10;
+   }
 }
      
