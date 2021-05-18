@@ -8,20 +8,20 @@ void draw(){
   if(y > 515) {
     randomNumber = (int) random(500);
     checked = false;
-  }
+    y = 10;  
+}
   ellipse(randomNumber, y, 20, 30);
-  if(y < 515) {
-  y+=5;
-  } else {
-    y = 10;
-  }
   fill(169, 169, 169);
   stroke(0, 0, 0);
   rect(mouseX, 385, 100, 120);
-  if(y > 365 && checked == false) {
+  if(y > height - 120 && checked == false) {
     checkCatch(randomNumber); 
     checked = true;
   }
+    y+=10;
+    fill(0,0,0);
+    textSize(16);
+    text("Score: " + score, 20, 20);
 }
 void setup(){
   size(500, 500);
